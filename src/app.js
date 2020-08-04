@@ -9,7 +9,7 @@ const app = express();
 const dirPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
-
+const port = process.env.PORT || 3000;
 app.set('views', viewsPath);
 app.set('view engine', 'hbs');
 hbs.registerPartials(partialsPath);
@@ -68,6 +68,6 @@ app.get('*', (req, res)=>{
     res.render('404-page');
 })
 
-app.listen(3000, ()=> {
-    console.log('Server running on port 3000');
+app.listen(port, ()=> {
+    console.log('Server running' + port);
 })
